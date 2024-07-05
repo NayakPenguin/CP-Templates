@@ -1,3 +1,8 @@
+const int N = (2 * 1e5) + 7;
+
+ll representative[N];
+ll Size[N];
+
 void make(ll v){
     representative[v] = v;
     Size[v] = 1;
@@ -20,3 +25,17 @@ void Union(ll a, ll b){
         Size[a] += Size[b];
     }
 }
+
+
+void solve(){
+    ll n, m; cin>>n>>m;
+
+    fr(i, n) make(i);
+
+    ll u, v;
+    while(m--){
+        cin>>u>>v;
+        u--, v--;
+        Union(u, v);
+    }   
+} 
